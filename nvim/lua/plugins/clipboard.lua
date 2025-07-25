@@ -4,5 +4,5 @@ return {
       require("deferred-clipboard").setup({
          lazy = true,
       })
-   end,
+  end,
 }

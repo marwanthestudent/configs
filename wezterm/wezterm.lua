@@ -4,7 +4,7 @@ local wezterm = require("wezterm")
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 local custom = wezterm.color.get_builtin_schemes()["Catppuccin Mocha"]
-custom.background ="#22272e" 
+custom.background = "#2a2a2f"
 
 -- This is where you actually apply your config choices.
 config = {
@@ -20,11 +20,12 @@ config = {
 		top = 0,
 		bottom = 0,
 	},
-      color_schemes = {
-         ["Github_dimmed"] = custom,
-      },
-      color_scheme = "Github_dimmed", 
-   
+	color_schemes = {
+		["Github_dimmed"] = custom,
+	},
+	color_scheme = "Github_dimmed",
+	window_background_opacity = 0.90,
+   macos_window_background_blur = 50,
 }
 
 -- Finally, return the configuration to wezterm:
