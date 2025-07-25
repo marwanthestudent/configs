@@ -5,7 +5,7 @@
     config = function()
        require('lualine').setup({
          options = {
-             theme = 'auto'
+             theme = 'everforest'
          },
          sections = {
             lualine_x = {'encoding', 'filetype'},  --  removed 'fileformat'
