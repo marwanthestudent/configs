@@ -23,12 +23,29 @@ return {
       "neovim/nvim-lspconfig",
       config = function()
          local lspconfig = require("lspconfig")
-         lspconfig.clangd.setup({})
-         lspconfig.verible.setup({})
-         lspconfig.svlangserver.setup({})
-         lspconfig.pyright.setup({})
-         lspconfig.marksman.setup({})
-         lspconfig.texlab.setup({})
+         local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+         lspconfig.lua_ls.setup({
+            capabilities = capabilities
+         })
+         lspconfig.clangd.setup({
+            capabilities = capabilities
+         })
+         lspconfig.verible.setup({
+            capabilities = capabilities
+         })
+         lspconfig.svlangserver.setup({
+            capabilities = capabilities
+         })
+         lspconfig.pyright.setup({
+            capabilities = capabilities
+         })
+         lspconfig.marksman.setup({
+            capabilities = capabilities
+         })
+         lspconfig.texlab.setup({
+            capabilities = capabilities
+         })
 
          vim.keymap.set('n','K', vim.lsp.buf.hover, {})
          vim.keymap.set('n','gd',vim.lsp.buf.definition,{})
