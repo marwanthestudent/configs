@@ -11,7 +11,7 @@
             pickers = {
             ["live_grep"] = {
             disable_devicons = true,
-            previewer = false,
+            previewer = true,
             },
             }
          }
