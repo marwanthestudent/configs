@@ -35,6 +35,6 @@ return {
 		map("n", "<C-9>", "<Cmd>BufferGoto 9<CR>", opts)
 		map("n", "<C-0>", "<Cmd>BufferLast<CR>", opts)
 		-- Close buffer
-		map("n", "<C-w>", "<Cmd>BufferClose<CR>", opts)
+		map("n", "<C-q>", "<Cmd>BufferClose<CR>", opts)
 	end,
 }
