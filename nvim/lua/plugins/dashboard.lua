@@ -26,7 +26,7 @@ return {
                { action = "ene | startinsert", desc = " New File", icon = " ", key = "n" },
                { action = 'Telescope oldfiles', desc = " Recent Files", icon = " ", key = "r" },
                --{ action = 'Telescope live_grep', desc = " Find Text", icon = " ", key = "g" },
-               { action = 'Telescope find_files', desc = " Config", icon = " ", key = "c" },
+               { action = "lua require('telescope.builtin').find_files({ cwd = '~/.config' })", desc = " Config", icon = " ", key = "c" },
                --{ action = 'lua require("persistence").load()', desc = " Restore Session", icon = " ", key = "s" },
                --{ action = "LazyExtras", desc = " Lazy Extras", icon = " ", key = "x" },
                { action = "Lazy", desc = " Lazy", icon = "󰒲 ", key = "l" },

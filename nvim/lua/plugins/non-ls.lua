@@ -8,19 +8,34 @@ return {
 
 		null_ls.setup({
 			sources = {
-				null_ls.builtins.formatting.stylua, -- Lua
-				null_ls.builtins.formatting.clang_format.with({ -- C/C++
-					extra_args = { "--style={BasedOnStyle: llvm, BreakBeforeBraces: Attach}" },
-				}),
-				null_ls.builtins.formatting.black, -- Python
-				null_ls.builtins.formatting.isort, -- Python
-				null_ls.builtins.formatting.prettier.with({ -- Markdown
+				null_ls.builtins.formatting.stylua.with({
+					extra_args = { "--indent-width", "4" },
+				}), -- Lua
+
+				null_ls.builtins.formatting.clang_format.with({
+					extra_args = {
+						"--style={BasedOnStyle: llvm, BreakBeforeBraces: Attach, TabWidth: 4, IndentWidth: 4}",
+					},
+				}), -- C/C++
+
+				null_ls.builtins.formatting.black.with({
+					extra_args = { "--line-length", "88" }, -- black uses 4-space indent by default and is not configurable
+				}), -- Python
+
+				null_ls.builtins.formatting.isort.with({
+					extra_args = { "--profile", "black" }, -- aligns with black; no tab width option
+				}), -- Python
+
+				null_ls.builtins.formatting.prettier.with({
 					filetypes = { "markdown" },
-				}),
-				null_ls.builtins.formatting.verible_verilog_format, --verilog/sysverilog
-				-- Linters (only for langs without Treesitter linting)
-				--null_ls.builtins.diagnostics.flake8,                   -- Python not workin due to conda/brew conflics maybe??
-				null_ls.builtins.diagnostics.markdownlint, -- Markdown
+					extra_args = { "--tab-width", "4" },
+				}), -- Markdown
+
+				null_ls.builtins.formatting.verible_verilog_format.with({
+					extra_args = { "--indentation_spaces", "4" },
+				}), -- Verilog/SystemVerilog
+
+				null_ls.builtins.diagnostics.markdownlint,
 			},
 		})
 		vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
