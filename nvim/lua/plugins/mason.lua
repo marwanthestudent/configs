@@ -13,7 +13,7 @@ return {
                "lua_ls",
                "clangd",
                "verible",
-               "svlangserver",
+--               "svlangserver",
                "pyright",
                "marksman",
                "texlab",
@@ -33,12 +33,12 @@ return {
          lspconfig.clangd.setup({
             capabilities = capabilities,
          })
-         lspconfig.verible.setup({
-            capabilities = capabilities,
-         })
-         lspconfig.svlangserver.setup({
-            capabilities = capabilities,
-         })
+        lspconfig.verible.setup({
+          capabilities = capabilities,
+        })
+         -- lspconfig.svlangserver.setup({
+         --    capabilities = capabilities,
+         -- })
          lspconfig.pyright.setup({
             capabilities = capabilities,
          })
@@ -64,17 +64,22 @@ return {
                source = "always",
             },
          })
-         local signs = {
-            Error = "",
-            Warn = "",
-            Hint = " ",
-            Info = "",
-         }
-         for type, icon in pairs(signs) do
-            local hl = "DiagnosticSign" .. type
-            vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-         end
-         vim.opt.signcolumn = "yes"
+        vim.diagnostic.config({
+          virtual_text = true,
+          signs = {
+            text = {
+              [vim.diagnostic.severity.ERROR] = "",
+              [vim.diagnostic.severity.WARN]  = "",
+              [vim.diagnostic.severity.HINT]  = "",
+              [vim.diagnostic.severity.INFO]  = "",
+            },
+          },
+          underline = true,
+          update_in_insert = false,
+          severity_sort = true,
+          float = { border = "rounded", source = "always" },
+        })
+        vim.opt.signcolumn = "yes"
       end,
    },
 }
