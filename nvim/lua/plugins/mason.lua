@@ -1,85 +1,79 @@
 return {
-   {
-      "mason-org/mason.nvim",
-      config = function()
-         require("mason").setup()
-      end,
-   },
-   {
-      "mason-org/mason-lspconfig.nvim",
-      config = function()
-         require("mason-lspconfig").setup({
-            ensure_installed = {
-               "lua_ls",
-               "clangd",
-               "verible",
---               "svlangserver",
-               "pyright",
-               "marksman",
-               "texlab",
-            },
-         })
-      end,
-   },
-   {
-      "neovim/nvim-lspconfig",
-      config = function()
-         local lspconfig = require("lspconfig")
-         local capabilities = require("cmp_nvim_lsp").default_capabilities()
+	{
+		"mason-org/mason.nvim",
+		config = function()
+			require("mason").setup()
+		end,
+	},
+	{
+		"mason-org/mason-lspconfig.nvim",
+		config = function()
+			require("mason-lspconfig").setup({
+				ensure_installed = {
+					"lua_ls",
+					"clangd",
+					"verible",
+					--               "svlangserver",
+					"pyright",
+					"marksman",
+					"texlab",
+				},
+			})
+		end,
+	},
+	{
+		"neovim/nvim-lspconfig",
+		config = function()
+			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-         lspconfig.lua_ls.setup({
-            capabilities = capabilities,
-         })
-         lspconfig.clangd.setup({
-            capabilities = capabilities,
-         })
-        lspconfig.verible.setup({
-          capabilities = capabilities,
-        })
-         -- lspconfig.svlangserver.setup({
-         --    capabilities = capabilities,
-         -- })
-         lspconfig.pyright.setup({
-            capabilities = capabilities,
-         })
-         lspconfig.marksman.setup({
-            capabilities = capabilities,
-         })
-         lspconfig.texlab.setup({
-            capabilities = capabilities,
-         })
+			-- Replace the old API with the new one
+			vim.lsp.config.lua_ls = {
+				capabilities = capabilities,
+			}
+			vim.lsp.config.clangd = {
+				capabilities = capabilities,
+			}
+			vim.lsp.config.verible = {
+				capabilities = capabilities,
+			}
+			-- vim.lsp.config.svlangserver = {
+			--   capabilities = capabilities,
+			-- }
+			vim.lsp.config.pyright = {
+				capabilities = capabilities,
+			}
+			vim.lsp.config.marksman = {
+				capabilities = capabilities,
+			}
+			vim.lsp.config.texlab = {
+				capabilities = capabilities,
+			}
 
-         vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-         vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
-         vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
+			-- Start servers automatically
+			vim.lsp.enable({ "lua_ls", "clangd", "verible", "pyright", "marksman", "texlab" })
 
-         vim.diagnostic.config({
-            virtual_text = true, -- show inline error/warning text
-            signs = true, -- show gutter signs
-            update_in_insert = false,
-            underline = true,
-            severity_sort = true,
-            float = {
-               border = "rounded",
-               source = "always",
-            },
-         })
-        vim.diagnostic.config({
-          virtual_text = true,
-          signs = {
-            text = {
-              [vim.diagnostic.severity.ERROR] = "",
-              [vim.diagnostic.severity.WARN]  = "",
-              [vim.diagnostic.severity.HINT]  = "",
-              [vim.diagnostic.severity.INFO]  = "",
-            },
-          },
-          underline = true,
-          update_in_insert = false,
-          severity_sort = true,
-          float = { border = "rounded", source = "always" },
-        })
-        vim.opt.signcolumn = "yes"
-      end,
-   },
+			-- Keymaps
+			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
+			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
+			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
+
+			-- Diagnostics
+			vim.diagnostic.config({
+				virtual_text = true,
+				signs = {
+					text = {
+						[vim.diagnostic.severity.ERROR] = "",
+						[vim.diagnostic.severity.WARN] = "",
+						[vim.diagnostic.severity.HINT] = "",
+						[vim.diagnostic.severity.INFO] = "",
+					},
+				},
+				underline = true,
+				update_in_insert = false,
+				severity_sort = true,
+				float = { border = "rounded", source = "always" },
+			})
+			vim.opt.signcolumn = "yes"
+		end,
+	},
 }
