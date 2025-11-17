@@ -25,10 +25,10 @@ recent.display_filter: tcp contains yhoo
 
 # Main window geometry.
 # Decimal numbers.
-gui.geometry_main_x: 101
-gui.geometry_main_y: 39
-gui.geometry_main_width: 1744
-gui.geometry_main_height: 877
+gui.geometry_main_x: 5
+gui.geometry_main_y: 36
+gui.geometry_main_width: 1910
+gui.geometry_main_height: 1010
 
 # Main window maximized.
 # true or false (case-insensitive).
@@ -36,7 +36,7 @@ gui.geometry_main_maximized: false
 
 # Main window geometry state.
 # Hex byte string.
-gui.geometry_main: 01d9d0cb00030000000000650000002700000734000003af000000650000004300000734000003af00000000000000000780000000650000004300000734000003af
+gui.geometry_main: 01d9d0cb0003000000000005000000240000077a0000043100000005000000400000077a000004310000000000000000078000000005000000400000077a00000431
 
 # Leftalign Action Buttons.
 # true or false (case-insensitive).
