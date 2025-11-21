@@ -2,13 +2,13 @@ return {
 	"nvimdev/dashboard-nvim",
 	lazy = false, -- As https://github.com/nvimdev/dashboard-nvim/pull/450, dashboard-nvim shouldn't be lazy-loaded to properly handle stdin.
 	opts = function()
-   local logo =[[ 
+   local logo =[[
  ███    ██ ███████  ██████  ██    ██ ██ ███    ███
  ████   ██ ██      ██    ██ ██    ██ ██ ████  ████
  ██ ██  ██ █████   ██    ██ ██    ██ ██ ██ ████ ██
  ██  ██ ██ ██      ██    ██  ██  ██  ██ ██  ██  ██
  ██   ████ ███████  ██████    ████   ██ ██      ██
-      ]] 
+      ]]
 		logo = string.rep("\n", 5 ) .. logo .. "\n\n"
 
 		local opts = {
@@ -35,7 +35,7 @@ return {
 				footer = function()
 					local stats = require("lazy").stats()
 					--local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-					return { "Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins"} --.. ms .. "ms" }
+					return { "Neovim loaded " .. stats.loaded+1 .. "/" .. stats.count .. " plugins"} --.. ms .. "ms" }
 				end,
 			},
 		}
