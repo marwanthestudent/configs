@@ -16,6 +16,7 @@ return {
 		}
 		vim.g.vimtex_view_zathura_use_synctex = 0
 		vim.g.vimtex_view_method = "zathura_simple"
+        vim.g.vimtex_compiler_biber = "biber"
 	end,
 }
 -- local leader = '\'
