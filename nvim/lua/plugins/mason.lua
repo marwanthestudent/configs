@@ -25,13 +25,28 @@ return {
 		"neovim/nvim-lspconfig",
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-			-- Replace the old API with the new one
 			vim.lsp.config.lua_ls = {
 				capabilities = capabilities,
 			}
 			vim.lsp.config.clangd = {
-				capabilities = capabilities,
+				cmd = {
+					"/opt/homebrew/opt/llvm/bin/clangd",
+				},
+				init_options = {
+					fallbackFlags = {
+						"-std=c++23",
+						"-x",
+						"cuda",
+						"-I/Users/marwanabulebdeh/cuda-headers/include",
+                        "-nocudainc",
+                        "-nocudalib",
+
+						--kill mac module mismatch errors
+						"-fno-modules",
+						"-fno-implicit-modules",
+						"-fno-implicit-module-maps",
+					},
+				},
 			}
 			vim.lsp.config.verible = {
 				capabilities = capabilities,
