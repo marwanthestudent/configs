@@ -21,3 +21,8 @@ vim.opt.rtp:prepend(lazypath)
 --vim.g.maplocalleader = "\\"
 require("vim-customizations")
 require("lazy").setup("plugins")
+
+--micropython
+vim.keymap.set("n", "<leader>mr", function()
+  require("micropython_nvim").run()
+end, { desc = "MicroPython: Run" })

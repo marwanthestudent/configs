@@ -31,20 +31,23 @@ return {
 			vim.lsp.config.clangd = {
 				cmd = {
 					"/opt/homebrew/opt/llvm/bin/clangd",
+					"--background-index",
+					"--query-driver=/opt/homebrew/**/arm-none-eabi-*,/usr/local/**/arm-none-eabi-*",
 				},
 				init_options = {
 					fallbackFlags = {
 						"-std=c++23",
-						"-x",
-						"cuda",
-						"-I/Users/marwanabulebdeh/cuda-headers/include",
-                        "-nocudainc",
-                        "-nocudalib",
-
-						--kill mac module mismatch errors
-						"-fno-modules",
-						"-fno-implicit-modules",
-						"-fno-implicit-module-maps",
+						"-I/Users/marwanabulebdeh/GpuRemoteDir/lab-0-getting-started-spr2026-marwanthestudent/third_party/libgputk/libgputk/include/",
+						"-I/Users/marwanabulebdeh/cudaHeadersRemote",
+						"-nocudainc",
+						"-nocudalib",
+						-- make CUDA function qualifiers harmless for parsing
+						"-D__host__=",
+						"-D__device__=",
+						"-D__global__=",
+						"-D__shared__=",
+						"-D__align__(n)=",
+						"-D__launch_bounds__(t, b)=",
 					},
 				},
 			}

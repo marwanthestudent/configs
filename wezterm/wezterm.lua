@@ -48,10 +48,10 @@ config.font = wezterm.font({
 config.font_size = 16
 
 config.window_padding = {
-  left = 3,
-  right = 3,
-  top = 0,
-  bottom = 0,
+  left = 1,
+  right = 1,
+  top = 1,
+  bottom = 1,
 }
 
 config.color_schemes = {
@@ -61,5 +61,17 @@ config.color_scheme = "OneDarkWarm"
 
 config.window_background_opacity = 0.90
 config.macos_window_background_blur = 50
+
+--tab bar
+config.use_fancy_tab_bar = false
+
+config.colors = {
+    tab_bar = {
+        active_tab = {
+            bg_color = "#272727",
+            fg_color = "#c0c0c0",
+        },
+    },
+}
 
 return config
