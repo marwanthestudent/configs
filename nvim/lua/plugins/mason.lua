@@ -68,7 +68,7 @@ return {
 			}
 
 			-- Start servers automatically
-			vim.lsp.enable({ "lua_ls", "clangd", "verible", "pyright", "marksman", "texlab" })
+			vim.lsp.enable({ "lua_ls", "clangd", "verible", "basedpyright", "marksman", "texlab" })
 
 			-- Keymaps
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})

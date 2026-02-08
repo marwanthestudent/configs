@@ -1,0 +1,35 @@
+  ~/.config
+    .git
+    aerospace
+    filezilla
+    neofetch
+    nvim
+   │  lua
+   │ │  plugins
+   │ │ │  barbar.lua
+   │ │ │  clipboard.lua
+   │ │ │  completions.lua
+   │ │ │  dashboard.lua
+   │ │ │  indent.lua                  
+   │ │ │  lualine.lua
+   │ │ │  mason.lua
+   │ │ │  neo-tree.lua
+   │ │ │  neoscroll.lua
+   │ │ │  non-ls.lua
+   │ │ │  smear.lua
+   │ │ │  spaceless.lua
+   │ │ │  telescope.lua
+   │ │ │  tex.lua
+   │ │ │  theme.lua
+   │ │ │  todo.lua
+   │ │ └  treesitter.lua
+   │ └  vim-customizations.lua
+   │  init.lua
+   └  lazy-lock.json                  
+    wezterm
+    wireshark
+    zathura
+    .gitignore
+    .luarc.json
+   󰂺 README.md
+    starship.toml
