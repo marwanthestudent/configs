@@ -5,17 +5,15 @@ return {
 		require("lualine").setup({
 			options = {
 				theme = "tomorrow_night",
+				component_separators = "",
+				section_separators = { left = "", right = "" },
 			},
 			sections = {
-				lualine_x = { "encoding", "filetype" }, --  removed 'fileformat'
+				lualine_x = { "filetype" },
 				lualine_b = {
-					{
-						require("micropython_nvim").statusline,
-						cond = package.loaded["micropython_nvim"] and require("micropython_nvim").exists,
-					},
+						"diff",
 				},
 			},
 		})
 	end,
 }
---hello

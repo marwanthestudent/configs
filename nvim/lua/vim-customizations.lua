@@ -9,6 +9,7 @@ vim.opt.smartindent = true
 vim.opt.cindent = true
 vim.opt.autoindent = true
 vim.opt.expandtab = true
+vim.opt.termguicolors = true
 
 vim.cmd("set number")
 vim.cmd("set relativenumber")
