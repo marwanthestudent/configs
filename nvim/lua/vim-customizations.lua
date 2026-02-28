@@ -37,3 +37,10 @@ vim.api.nvim_create_autocmd("TextYankPost", {
         vim.highlight.on_yank({ higroup = "IncSearch", timeout = 150 })
     end,
 })
+
+vim.keymap.set("n", "<C-n>", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
+--micropython
+vim.keymap.set("n", "<leader>mr", function()
+  require("micropython_nvim").run()
+end, { desc = "MicroPython: Run" })

@@ -22,12 +22,8 @@ vim.opt.rtp:prepend(lazypath)
 require("vim-customizations")
 require("lazy").setup("plugins")
 
---micropython
-vim.keymap.set("n", "<leader>mr", function()
-  require("micropython_nvim").run()
-end, { desc = "MicroPython: Run" })
 
---treesitter highlight for python (not sure why it's now working auto)
+-- treesitter highlight for python (not sure why it's now working auto)
 vim.api.nvim_create_autocmd('FileType', {
   pattern = { 'python' },
   callback = function() vim.treesitter.start() end,

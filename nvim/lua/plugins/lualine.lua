@@ -4,7 +4,7 @@ return {
 	config = function()
 		require("lualine").setup({
 			options = {
-				theme = "tomorrow_night",
+				theme = "gruvbox_dark",
 				component_separators = "",
 				section_separators = { left = "", right = "" },
 			},
@@ -17,3 +17,4 @@ return {
 		})
 	end,
 }
+

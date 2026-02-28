@@ -37,7 +37,7 @@ return {
 				init_options = {
 					fallbackFlags = {
 						"-std=c++23",
-						"-I/Users/marwanabulebdeh/GpuRemoteDir/lab-0-getting-started-spr2026-marwanthestudent/third_party/libgputk/libgputk/include/",
+						"-I/Users/marwanabulebdeh/libgputk",
 						"-I/Users/marwanabulebdeh/cudaHeadersRemote",
 						"-nocudainc",
 						"-nocudalib",
