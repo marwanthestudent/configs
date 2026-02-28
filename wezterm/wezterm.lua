@@ -1,38 +1,7 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
--- OneDark Warm palette from navarasu/onedark.nvim
-local one_dark_warm = {
-	foreground = "#abb2bf",
-	background = "#2c2c2c", -- darker warm base background
-	cursor_bg = "#e5c07b",
-	cursor_fg = "#2c2c2c",
-	cursor_border = "#e5c07b",
-	selection_bg = "#3e4452",
-	selection_fg = "#ffffff",
-
-	ansi = {
-		"#3f4451", -- black
-		"#e06c75", -- red
-		"#98c379", -- green
-		"#d19a66", -- yellow (warmer)
-		"#61afef", -- blue
-		"#c678dd", -- magenta
-		"#56b6c2", -- cyan
-		"#abb2bf", -- white
-	},
-	brights = {
-		"#5c6370", -- bright black
-		"#e06c75", -- bright red
-		"#98c379", -- bright green
-		"#d19a66", -- bright yellow
-		"#61afef", -- bright blue
-		"#c678dd", -- bright magenta
-		"#56b6c2", -- bright cyan
-		"#ffffff", -- bright white
-	},
-}
-
+config.color_scheme = 'One Dark (Gogh)'
 config.automatically_reload_config = true
 config.enable_tab_bar = true
 config.window_close_confirmation = "NeverPrompt"
@@ -54,13 +23,8 @@ config.window_padding = {
   bottom = 1,
 }
 
-config.color_schemes = {
-  ["OneDarkWarm"] = one_dark_warm,
-}
-config.color_scheme = "OneDarkWarm"
-
-config.window_background_opacity = 0.90
-config.macos_window_background_blur = 50
+config.window_background_opacity = 0.60
+config.macos_window_background_blur = 60
 
 --tab bar
 config.use_fancy_tab_bar = false
@@ -72,6 +36,48 @@ config.colors = {
             fg_color = "#c0c0c0",
         },
     },
+    foreground = '#E7DECC',
 }
+
+config.keys = {
+  -- This will create a new split
+  {
+    key = 'l',
+    mods = 'CTRL|SHIFT',
+    action = wezterm.action.SplitPane {
+      direction = 'Right',
+      size = { Percent = 50 },
+    },
+  },
+  {
+    key = 'h',
+    mods = 'CTRL|SHIFT',
+    action = wezterm.action.SplitPane {
+      direction = 'Left',
+      size = { Percent = 50 },
+    },
+  },
+  {
+    key = 'k',
+    mods = 'CTRL|SHIFT',
+    action = wezterm.action.SplitPane {
+      direction = 'Up',
+      size = { Percent = 50 },
+    },
+  },
+  {
+    key = 'j',
+    mods = 'CTRL|SHIFT',
+    action = wezterm.action.SplitPane {
+      direction = 'Down',
+      size = { Percent = 50 },
+    },
+  },
+
+  {key = '9', mods = 'CTRL', action = wezterm.action.PaneSelect },
+}
+
+
+
 
 return config
