@@ -36,7 +36,7 @@ return {
 				},
 				init_options = {
 					fallbackFlags = {
-						"-std=c++23",
+						--"-std=c++23",
 						"-I/Users/marwanabulebdeh/libgputk",
 						"-I/Users/marwanabulebdeh/cudaHeadersRemote",
 						"-nocudainc",

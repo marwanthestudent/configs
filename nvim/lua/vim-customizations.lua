@@ -44,3 +44,11 @@ vim.keymap.set("n", "<C-n>", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 vim.keymap.set("n", "<leader>mr", function()
   require("micropython_nvim").run()
 end, { desc = "MicroPython: Run" })
+
+vim.keymap.set("n", "<leader>mf",":MPListFiles<CR>"
+, {desc = "MicroPython: ListFiles"})
+
+
+
+
+
